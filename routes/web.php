@@ -18,8 +18,6 @@ Route::get('/', [TopController::class, 'get_top'])->name('top');
 
 Auth::routes();
 
-
-
 Route::middleware(['auth', 'verified'])->group(function () {
 
 

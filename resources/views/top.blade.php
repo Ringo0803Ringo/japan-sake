@@ -2,9 +2,9 @@
 
 @section('content')
 
-<p>iiiiiiiiiiiii</p>
-<p>iiiiiiiiiiiii</p>
-<p>iiiiiiiiiiiii</p>
-<p>iiiiiiiiiiiii</p>
+@foreach ($areas["areas"] as $area)
+    <li>{{ $area["name"] }}</li>
+    
+@endforeach
 
 @endsection

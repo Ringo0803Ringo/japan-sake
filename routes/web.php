@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\AreaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,10 @@ use App\Http\Controllers\TopController;
 */
 
 Route::get('/', [TopController::class, 'get_top'])->name('top');
+Route::get('/areas', [AreaController::class, 'areas'])->name('areas');
 
 Auth::routes();
 
 Route::middleware(['auth', 'verified'])->group(function () {
-
-
 
 });

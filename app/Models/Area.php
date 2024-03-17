@@ -13,4 +13,8 @@ class Area extends Model
         'id',
         'name'
     ];
+
+    public function brewery() {
+        return $this->hasMany(Brewery::class);
+    }
 }

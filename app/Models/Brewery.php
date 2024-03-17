@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Brewery extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
         'name',
-        'breweryId'
+        'areaId'
     ];
 
-    public function brewery() {
-        return $this->belongsTo(Brewery::class);
+    public function area() {
+        return $this->belongsTo(Area::class);
+    }
+
+    public function brand() {
+        return $this->hasMany(Brand::class);
     }
 }

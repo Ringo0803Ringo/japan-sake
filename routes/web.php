@@ -16,7 +16,7 @@ use App\Http\Controllers\AreaController;
 */
 
 Route::get('/', [TopController::class, 'get_top'])->name('top');
-Route::get('/areas', [AreaController::class, 'areas'])->name('areas');
+Route::get('/', [TopController::class, 'brands'])->name('brands');
 
 Auth::routes();
 

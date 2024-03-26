@@ -16,6 +16,6 @@ class Brand extends Model
     ];
 
     public function brewery() {
-        return $this->belongsTo(Brewery::class);
+        return $this->belongsTo(Brewery::class, 'breweryId', 'id');
     }
 }

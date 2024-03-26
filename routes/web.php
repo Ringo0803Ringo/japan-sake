@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\AreaController;
 
 Route::get('/', [TopController::class, 'get_top'])->name('top');
 Route::get('/', [TopController::class, 'brands'])->name('brands');
+Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');
 
 Auth::routes();
 

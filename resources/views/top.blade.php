@@ -20,7 +20,7 @@
                 <div class="card-header">銘柄一覧</div>
                 <div class="card-body">
                     @foreach ($brands["brands"] as $brand)
-                    <li>{{ $brand["name"] }}</li>
+                    <li><a href="{{ route('brand.show', $brand["id"]) }}">{{ $brand["name"] }}</li>
                     @endforeach
                 </div>
             </div>

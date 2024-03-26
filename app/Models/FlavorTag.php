@@ -9,6 +9,8 @@ class FlavorTag extends Model
 {
     use HasFactory;
 
+    protected $table = 'flavorTags';
+
     protected $fillable = [
         'brandId',
         'tagIds'

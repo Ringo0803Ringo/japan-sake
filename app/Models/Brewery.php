@@ -16,10 +16,10 @@ class Brewery extends Model
     ];
 
     public function area() {
-        return $this->belongsTo(Area::class);
+        return $this->belongsTo(Area::class, 'areaId', 'id');
     }
 
-    public function brand() {
-        return $this->hasMany(Brand::class);
+    public function brands() {
+        return $this->hasMany(Brand::class, 'breweryId', 'id');
     }
 }

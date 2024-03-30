@@ -13,4 +13,8 @@ class Tag extends Model
         'id',
         'tag'
     ];
+
+    public function flavor_tags() {
+        return $this->hasMany(FlavorTag::class);
+    }
 }

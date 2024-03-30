@@ -8,7 +8,7 @@ use App\Models\FlavorTag;
 
 class FetchFlavorTags extends Command
 {
-    protected $signature = 'fetch:flavorTags';
+    protected $signature = 'fetch:flavor-tags';
     protected $description = 'Fetch flavor tags from external API and store them in the database';
 
     public function handle()
@@ -18,10 +18,10 @@ class FetchFlavorTags extends Command
         $flavorTags = json_decode($response->getBody()->getContents(), true);
 
         foreach ($flavorTags['flavorTags'] as $flavorTag) {
-            FlavorTag::create([
-                'brandId' => $flavorTag['brandId'],
-                'tagIds' => json_encode($flavorTag['tagIds']), // tagIdsをJSON文字列として保存
-            ]);
+            FlavorTag::updateOrCreate(
+                ['brand_id' => $flavorTag['brandId']],
+                ['tag_id' => implode(',', $flavorTag['tagIds'])] // tag_idをカンマ区切りの文字列として保存
+            );
         }
 
         $this->info('Flavor tags have been fetched and stored successfully.');

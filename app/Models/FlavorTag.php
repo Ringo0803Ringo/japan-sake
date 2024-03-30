@@ -9,10 +9,16 @@ class FlavorTag extends Model
 {
     use HasFactory;
 
-    protected $table = 'flavorTags';
-
     protected $fillable = [
-        'brandId',
-        'tagIds'
+        'brand_id',
+        'tag_id'
     ];
+
+    public function brand() {
+        return $this->belongsTo(Brand::class, 'brand_id', 'id');
+    }
+
+    public function tag() {
+        return $this->belongsTo(Tag::class, 'tag_id', 'id');
+    }
 }

@@ -14,18 +14,16 @@
                 </div>
             </div>
 
-            @foreach ($rankings as $ranking)
-                <p>{{ $ranking->rank}}位: {{ $ranking->brand->name }} (スコア: {{ $ranking->score }})</p>
-            @endforeach
+            <a href="{{ route('ranking') }}" class="btn btn-primary mt-3">Top100銘柄</a>
 
-            {{-- <div class="card mt-3">
+            <div class="card mt-3">
                 <div class="card-header">銘柄一覧</div>
                 <div class="card-body">
                     @foreach ($brands as $brand)
                     <li><a href="{{ route('brand.show', $brand["id"]) }}">{{ $brand["name"] }}</li>
                     @endforeach
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@ use App\Http\Controllers\SearchController;
 
 Route::get('/', [TopController::class, 'get_top'])->name('top');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-Route::get('/', [RankingController::class, 'index']);
+Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
 Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');
 
 Auth::routes();

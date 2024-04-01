@@ -10,7 +10,7 @@
                 <p>産地：{{ $brand->brewery->area->name }}</p>
 
                 @foreach ($brand->flavor_tags as $flavorTag)
-                        <p>風味：{{ $flavorTag->tag?->tag }}</p>
+                        <p>風味：{{ $flavorTag->tag->tag ?? '情報なし' }}</p>
                 @endforeach
 
             </div>

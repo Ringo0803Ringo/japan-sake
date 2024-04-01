@@ -22,4 +22,9 @@ class Brand extends Model
     public function flavor_tags() {
         return $this->hasMany(FlavorTag::class);
     }
+
+    public function ranking()
+{
+    return $this->hasOne(Ranking::class, 'brand_id', 'id');
+}
 }

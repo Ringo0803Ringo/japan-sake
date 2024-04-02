@@ -1,0 +1,23 @@
+/* カスタムページネーションスタイル */
+.pagination {
+    display: flex;
+    justify-content: center; /* 中央揃えにする */
+}
+
+.pagination .page-item .page-link {
+    color: #007bff; /* リンクの色 */
+    background-color: #fff; /* 背景色 */
+    border: 1px solid #dee2e6; /* 境界線 */
+}
+
+.pagination .page-item.active .page-link {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #fff;
+    border-color: #dee2e6;
+}

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-3">
-                <div class="card-header">銘柄ランキング</div>
+                <div class="card-header">Top100銘柄</div>
                 <div class="card-body">
                     @foreach ($rankings as $ranking)
                     <div style="white-space: nowrap;">

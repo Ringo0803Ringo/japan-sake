@@ -10,7 +10,7 @@ class TopController extends Controller
 {
     public function get_top() {
 
-        $brands = Brand::all();
+        $brands = Brand::paginate(100);
 
         return view('top', ['brands' => $brands]);
     }

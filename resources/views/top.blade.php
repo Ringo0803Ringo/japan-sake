@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('pagecss')
+
+<link rel="stylesheet" href="{{ asset('css/top.css') }}">
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -20,8 +25,9 @@
                 <div class="card-header">銘柄一覧</div>
                 <div class="card-body">
                     @foreach ($brands as $brand)
-                    <li><a href="{{ route('brand.show', $brand["id"]) }}">{{ $brand["name"] }}</li>
+                    <li><a href="{{ route('brand.show', $brand["id"]) }}">{{ $brand["name"] }}</a></li>
                     @endforeach
+                    <ul class="pagination pagination-sm mt-3">{{ $brands->links() }}</ul>
                 </div>
             </div>
         </div>

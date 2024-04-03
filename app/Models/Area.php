@@ -17,4 +17,8 @@ class Area extends Model
     public function breweries() {
         return $this->hasMany(Brewery::class, 'areaId', 'id');
     }
+
+    public function brands() {
+        return $this->hasMany(Brand::class); 
+    }
 }

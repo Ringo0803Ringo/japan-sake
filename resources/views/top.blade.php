@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mt-3">
+            {{-- <div class="card mt-3">
                 <div class="card-header">銘柄検索</div>
                 <div class="card-body">
                     <form action="{{ route('search') }}" method="GET">
@@ -17,7 +17,16 @@
                         <button class="btn btn-success btn-sm" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
                     </form>
                 </div>
-            </div>
+            </div> --}}
+
+            <form action="{{ route('area_search') }}" method="GET">
+                <select name="area_id">
+                    @foreach ($areas as $area)
+                        <option value="{{ $area->id }}">{{ $area->name }}</option>
+                    @endforeach
+                </select>
+                <button class="btn btn-success btn-sm" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
+            </form>
 
             <a href="{{ route('ranking') }}" class="btn btn-primary mt-3">Top100銘柄</a>
 

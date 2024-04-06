@@ -18,7 +18,7 @@ class FetchBrands extends Command
         $brands = json_decode($response->getBody()->getContents(), true);
 
         foreach ($brands['brands'] as $brand) {
-            Brand::updateOrCreate(['id' => $brand['id']], ['name' => $brand['name'], 'breweryId' => $brand['breweryId']]);
+            Brand::updateOrCreate(['id' => $brand['id']], ['name' => $brand['name'], 'brewery_id' => $brand['breweryId']]);
         }
 
         $this->info('Brands have been fetched and stored successfully.');

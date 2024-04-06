@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('breweries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('breweryId');
+            $table->string('area_id');
             $table->timestamps();
         });
     }

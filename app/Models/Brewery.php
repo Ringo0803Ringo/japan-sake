@@ -12,14 +12,14 @@ class Brewery extends Model
     protected $fillable = [
         'id',
         'name',
-        'areaId'
+        'area_id'
     ];
 
     public function area() {
-        return $this->belongsTo(Area::class, 'areaId', 'id');
+        return $this->belongsTo(Area::class);
     }
 
     public function brands() {
-        return $this->hasMany(Brand::class, 'breweryId', 'id');
+        return $this->hasMany(Brand::class);
     }
 }

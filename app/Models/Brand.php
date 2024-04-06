@@ -12,11 +12,11 @@ class Brand extends Model
     protected $fillable = [
         'id',
         'name',
-        'breweryId'
+        'brewery_id'
     ];
 
     public function brewery() {
-        return $this->belongsTo(Brewery::class, 'breweryId', 'id');
+        return $this->belongsTo(Brewery::class);
     }
 
     public function flavor_tags() {
@@ -24,6 +24,6 @@ class Brand extends Model
     }
 
     public function ranking() {
-        return $this->hasOne(Ranking::class, 'brand_id', 'id');
+        return $this->hasOne(Ranking::class);
     }
 }

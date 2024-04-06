@@ -20,10 +20,10 @@ class SearchController extends Controller
         ]);
     }
 
-    public function area_search(Request $request)
+    public function search_area(Request $request)
     {
-        $areaId = $request->input('area_id');
-        $area = Area::with('brands')->find($areaId);
-        return view('area_search', compact('area'));
+        $area_id = $request->input('area_id');
+        $area = Area::with('brands')->find($area_id);
+        return view('search_area', compact('area'));
     }
 }

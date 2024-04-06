@@ -18,7 +18,7 @@ class FetchBreweries extends Command
         $breweries = json_decode($response->getBody()->getContents(), true);
 
         foreach ($breweries['breweries'] as $brewery) {
-            Brewery::updateOrCreate(['id' => $brewery['id']], ['name' => $brewery['name'], 'areaId' => $brewery['areaId']]);
+            Brewery::updateOrCreate(['id' => $brewery['id']], ['name' => $brewery['name'], 'area_id' => $brewery['areaId']]);
         }
 
         $this->info('Breweries have been fetched and stored successfully.');

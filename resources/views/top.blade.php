@@ -6,9 +6,6 @@
 @endsection
 
 @section('content')
-{{-- @php
-    dd($areas);
-@endphp --}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -25,7 +22,7 @@
             <div class="card mt-3">
                 <div class="card-header">エリア別検索</div>
                 <div class="card-body">
-                    <form action="{{ route('area_search') }}" method="GET">
+                    <form action="{{ route('search_area') }}" method="GET">
                         <select name="area_id">
                             @foreach ($areas as $area)
                                 <option value="{{ $area->id }}">{{ $area->name }}</option>

@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('brands', function (Blueprint $table) {
-            $table->unsignedBigInteger('area_id')->nullable();
-            $table->foreign('area_id')->references('id')->on('areas');
+        Schema::create('brands', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->unsignedBigInteger('brewery_id');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('brands', function (Blueprint $table) {
-            //
-        });
+        //
     }
 };

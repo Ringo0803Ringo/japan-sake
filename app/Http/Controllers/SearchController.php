@@ -22,9 +22,7 @@ class SearchController extends Controller
     {
         $areaId = $request->input('area_id');
         $area = Area::with('brands')->find($areaId);
-        $areas = Area::all();
-    
         // 検索結果をビューに渡す
-        return view('area_search', compact('area', 'areas'));
+        return view('area_search', compact('area'));
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Brand;
 use App\Models\Area;
+use App\Models\Brewery;
 
 class SearchController extends Controller
 {
@@ -25,5 +26,17 @@ class SearchController extends Controller
         $area_id = $request->input('area_id');
         $area = Area::with('brands')->find($area_id);
         return view('search_area', compact('area'));
+    }
+
+    public function area_search($areaId)
+    {
+        $area = Area::with('brands')->find($areaId);
+        return view('search_area', compact('area'));
+    }
+
+    public function brewery_search($breweryId)
+    {
+        $brewery = Brewery::with('brands')->find($breweryId);
+        return view('search_brewery', compact('brewery'));
     }
 }

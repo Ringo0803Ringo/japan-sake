@@ -19,6 +19,6 @@ class Area extends Model
     }
 
     public function brands() {
-        return $this->hasMany(Brand::class); 
+        return $this->hasManyThrough(Brand::class, Brewery::class); 
     }
 }

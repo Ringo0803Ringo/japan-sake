@@ -26,8 +26,4 @@ class Brand extends Model
     public function ranking() {
         return $this->hasOne(Ranking::class, 'brand_id', 'id');
     }
-
-    public function area() {
-        return $this->belongsTo(Area::class);
-    }
 }

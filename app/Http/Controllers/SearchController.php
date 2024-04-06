@@ -12,9 +12,11 @@ class SearchController extends Controller
     {
         $keyword = $request->input('keyword');
         $brands = Brand::where('name', 'like', '%'.$keyword.'%')->paginate(100);
+        $areas = Area::all();
         return view('top', [
             'brands' => $brands,
-            'keyword' => $keyword ?? ''
+            'keyword' => $keyword ?? '',
+            'areas' => $areas
         ]);
     }
 
@@ -22,7 +24,6 @@ class SearchController extends Controller
     {
         $areaId = $request->input('area_id');
         $area = Area::with('brands')->find($areaId);
-        // 検索結果をビューに渡す
         return view('area_search', compact('area'));
     }
 }

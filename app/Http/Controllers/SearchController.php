@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Brand;
 use App\Models\Area;
 use App\Models\Brewery;
+use App\Models\Tag;
 
 class SearchController extends Controller
 {
@@ -38,5 +39,11 @@ class SearchController extends Controller
     {
         $brewery = Brewery::with('brands')->find($breweryId);
         return view('search_brewery', compact('brewery'));
+    }
+
+    public function flavor_search($flavorId)
+    {
+        $tag = Tag::with('brands')->find($flavorId);
+        return view('search_flavor', compact('tag'));
     }
 }

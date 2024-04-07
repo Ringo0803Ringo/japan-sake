@@ -17,4 +17,8 @@ class Tag extends Model
     public function flavor_tags() {
         return $this->hasMany(FlavorTag::class);
     }
+
+    public function brands() {
+        return $this->hasManyThrough(Brand::class, FlavorTag::class);
+    }
 }

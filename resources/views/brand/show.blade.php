@@ -9,9 +9,11 @@
                 <p>酒造：<a href="{{ route('brewery_search', ['breweryId' => $brand->brewery->id]) }}">{{ $brand->brewery->name }}</a></p>
                 <p>産地：<a href="{{ route('area_search', ['areaId' => $brand->brewery->area->id]) }}">{{ $brand->brewery->area->name }}</a></p>
 
-                @foreach ($brand->flavor_tags as $flavorTag)
-                        <p>風味：{{ $flavorTag->tag->tag ?? '情報なし' }}</p>
-                @endforeach
+                @php
+                    dd($brand->flavor_tags);
+                @endphp
+                    <p>風味：<a href="{{ route('flavor_search', ['flavorId' => $brand->flavor_tags->tag->id]) }}">{{ $flavorTag->tag->tag ?? '情報なし' }}</a></p>
+                
 
             </div>
         </div>

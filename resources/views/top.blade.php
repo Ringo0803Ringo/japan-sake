@@ -28,7 +28,7 @@
                                 <option value="{{ $area->id }}">{{ $area->name }}</option>
                             @endforeach
                         </select>
-                        <button type="submit">検索</button>
+                        <button class="btn btn-success btn-sm" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
                     </form>
                 </div>
             </div>

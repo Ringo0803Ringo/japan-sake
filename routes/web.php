@@ -23,7 +23,7 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/search/area', [SearchController::class, 'search_area'])->name('search_area');
 Route::get('/search/area/{areaId}', [SearchController::class, 'area_search'])->name('area_search');
 Route::get('/search/brewery/{breweryId}', [SearchController::class, 'brewery_search'])->name('brewery_search');
-Route::get('/search/flavor/{flavorId}', [SearchController::class, 'flavor_search'])->name('flavor_search');
+Route::get('/search/flavor/{flavorId?}', [SearchController::class, 'flavor_search'])->name('flavor_search');
 Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
 Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');
 

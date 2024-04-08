@@ -10,10 +10,13 @@
                 <p>産地：<a href="{{ route('area_search', ['areaId' => $brand->brewery->area->id]) }}">{{ $brand->brewery->area->name }}</a></p>
 
                 @foreach ($brand->flavor_tags as $flavorTag)
-                @php
-                    dd($flavorTag->tag);
-                @endphp
-                <p>風味：{{ $flavorTag->tag->tag ?? '情報なし' }}</p>
+
+                @if($flavorTag->tag)
+                <p>風味：<a href="{{ route('flavor_search', ['flavorId' => $flavorTag->tag->id]) }}">{{ $flavorTag->tag->tag }}</a></p>
+                @else
+                <p>風味：情報なし</p>
+                @endif  
+
                 @endforeach
 
             </div>

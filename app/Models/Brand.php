@@ -28,8 +28,8 @@ class Brand extends Model
         return $this->hasOne(Ranking::class);
     }
 
-    public function flavorTag()
+    public function tags()
     {
-        return $this->belongsTo(FlavorTag::class, 'flavor_tag_id');
+        return $this->belongsToMany(Tag::class, 'flavor_tags', 'brand_id', 'tag_id');
     }
 }

@@ -18,7 +18,8 @@ class Tag extends Model
         return $this->hasMany(FlavorTag::class);
     }
 
-    public function brands() {
-        return $this->hasManyThrough(Brand::class, FlavorTag::class);
+    public function brands()
+    {
+        return $this->belongsToMany(Brand::class, 'flavor_tags', 'tag_id', 'brand_id');
     }
 }

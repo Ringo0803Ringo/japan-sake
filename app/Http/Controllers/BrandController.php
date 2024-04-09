@@ -12,7 +12,9 @@ class BrandController extends Controller
 
         //foreachでタグのフレーバーを取得する。
 
-        return view('brand.show', compact('brand'));
+        $reviews = $brand->reviews()->get();
+
+        return view('brand.show', compact('brand', 'reviews'));
     }
 
 

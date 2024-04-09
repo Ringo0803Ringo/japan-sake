@@ -6,6 +6,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,6 @@ Auth::routes();
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
+    Route::post('/review/{store}', [ReviewController::class, 'store'])->name('review.store');
+    Route::delete('/review/{review}/destroy', [ReviewController::class, 'destroy'])->name('review.destroy');
 });

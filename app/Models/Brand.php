@@ -31,4 +31,8 @@ class Brand extends Model
     {
         return $this->belongsToMany(Tag::class, 'flavor_tags', 'brand_id', 'tag_id');
     }
+
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
 }

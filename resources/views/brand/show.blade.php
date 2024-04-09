@@ -18,6 +18,25 @@
                     @endforeach
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-7">
+            <div class="card mt-4"">
+                <div class="card-header text-center h4">レビュー最新一覧</div>
+                <div class="card-body">
+                    @foreach($reviews as $review)
+                        <label>{{$review->user->name}} {{$review->created_at->toDateString()}}</label>
+                        <br>
+                        @for ($i = 0; $i < $review->star; $i++)
+                        ★
+                        @endfor
+                        <p>{{$review->content}}</p>
+                    @endforeach 
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
             <div class="card mt-4">
                 <div class="card-header text-center h4">レビュー投稿</div>
                 <div class="card-body">
@@ -37,7 +56,7 @@
                     @enderror
                     <textarea name="content" class="form-control"></textarea>
                     <input type="hidden" name="brand_id" value="{{$brand->id}}">
-                    <button type="submit" class="btn btn-primary btn-block mt-3">レビューを追加</button>
+                    <button type="submit" class="btn btn-primary btn-block mt-3 float-end">レビュー投稿</button>
                 </div>
             </div>
         </div>

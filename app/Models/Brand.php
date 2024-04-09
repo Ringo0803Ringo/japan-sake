@@ -12,8 +12,7 @@ class Brand extends Model
     protected $fillable = [
         'id',
         'name',
-        'brewery_id',
-        'flavor_tag_id'
+        'brewery_id'
     ];
 
     public function brewery() {

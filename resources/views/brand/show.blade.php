@@ -37,28 +37,31 @@
             </div>
         </div>
         <div class="col-5">
-            <div class="card mt-4">
-                <div class="card-header text-center h4">レビュー投稿</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="rating" class="h4 mt-4">評価（星）</label>
-                        <select class="form-control" id="rating" name="star">
-                            <option value="5" class="review-score-color">★★★★★</option>
-                            <option value="4" class="review-score-color">★★★★</option>
-                            <option value="3" class="review-score-color">★★★</option>
-                            <option value="2" class="review-score-color">★★</option>
-                            <option value="1" class="review-score-color">★</option>
-                        </select>
+            <form action="{{ route('review.store', $brand->id) }}" method="POST">
+                @csrf
+                <div class="card mt-4">
+                    <div class="card-header text-center h4">レビュー投稿</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="rating" class="h4 mt-4">評価（星）</label>
+                            <select class="form-control" id="rating" name="star">
+                                <option value="5" class="review-score-color">★★★★★</option>
+                                <option value="4" class="review-score-color">★★★★</option>
+                                <option value="3" class="review-score-color">★★★</option>
+                                <option value="2" class="review-score-color">★★</option>
+                                <option value="1" class="review-score-color">★</option>
+                            </select>
+                        </div>
+                        <h4 class="mt-4">レビュー内容</h4>
+                        @error('content')
+                            <strong class="text-danger">レビュー内容を入力してください</strong>
+                        @enderror
+                        <textarea name="content" class="form-control"></textarea>
+                        <input type="hidden" name="brand_id" value="{{$brand->id}}">
+                        <button type="submit" class="btn btn-primary btn-block mt-3 float-end">レビュー投稿</button>
                     </div>
-                    <h4 class="mt-4">レビュー内容</h4>
-                    @error('content')
-                        <strong class="text-danger">レビュー内容を入力してください</strong>
-                    @enderror
-                    <textarea name="content" class="form-control"></textarea>
-                    <input type="hidden" name="brand_id" value="{{$brand->id}}">
-                    <button type="submit" class="btn btn-primary btn-block mt-3 float-end">レビュー投稿</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

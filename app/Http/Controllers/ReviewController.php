@@ -29,6 +29,6 @@ class ReviewController extends Controller
         ]);
         $review->save();
 
-        return back()->with('success', 'レビューを投稿しました');
+        return redirect()->back()->with('success', 'レビューを投稿しました。');
     }
 }

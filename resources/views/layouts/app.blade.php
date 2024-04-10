@@ -26,6 +26,12 @@
     <div id="app">
         @include('layouts.header')
 
+        @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+
         <main class="py-4">
                 @yield('content')
         </main>

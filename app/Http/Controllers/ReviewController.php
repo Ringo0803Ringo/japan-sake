@@ -10,7 +10,7 @@ use App\Models\User;
 
 class ReviewController extends Controller
 {
-    public function store(Request $request)
+    public function review_store(Request $request)
     {
         $user = User::find(Auth::id());
 

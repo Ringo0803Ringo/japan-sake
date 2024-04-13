@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="col-5">
-            <form action="{{ route('review.store', $brand->id) }}" method="POST">
+            <form action="{{ route('review_store', $brand->id) }}" method="POST">
                 @csrf
                 <div class="card mt-4">
                     <div class="card-header text-center h4">レビュー投稿</div>

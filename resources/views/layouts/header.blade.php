@@ -47,6 +47,11 @@
                                 </form>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user', ['user' => Auth::user()]) }}">
+                              <p>ユーザー情報<i class="fa-solid fa-user ms-1"></i></p>
+                            </a>
+                        </li>
                     @endguest
                 </ul>
             </div>

@@ -12,9 +12,9 @@
                         @csrf
                         @method('PUT')
                         <h4 class="mt-4">ユーザー名</h4>
-                        <input type="text" placeholder="ユーザー名を入れてください" class="form-control" value="{{ $user->name }}">
+                        <input type="text" name="name" placeholder="ユーザー名を入れてください" class="form-control" value="{{ $user->name }}">
                         <h4 class="mt-4">メールアドレス</h4>
-                        <input type="text" placeholder="メールアドレスを入れてください" class="form-control" value="{{ $user->email }}">
+                        <input type="text" name="email" placeholder="メールアドレスを入れてください" class="form-control" value="{{ $user->email }}">
                         <button type="submit" class="btn btn-primary btn-block mt-3 float-end">変更</button>
                     </form>
                 </div>

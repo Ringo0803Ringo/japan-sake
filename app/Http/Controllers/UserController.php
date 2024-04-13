@@ -29,6 +29,6 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        return redirect()->route('top')->with('success', 'ユーザー情報を変更しました');
+        return redirect()->route('user', $user->id)->with('success', 'ユーザー情報を変更しました');
     }
 }

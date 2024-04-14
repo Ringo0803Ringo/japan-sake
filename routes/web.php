@@ -41,5 +41,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/user/{user}/update', [UserController::class, 'user_update'])->name('user_update');
 
     Route::post('/review/{brand}', [ReviewController::class, 'review_store'])->name('review_store');
-    Route::delete('/review/{review}/destroy', [ReviewController::class, 'destroy'])->name('review_destroy');
+    Route::delete('/review/{review}/destroy', [ReviewController::class, 'review_destroy'])->name('review_destroy');
+    Route::get('/review/{review}/show', [ReviewController::class, 'review_show'])->name('review_show');
 });

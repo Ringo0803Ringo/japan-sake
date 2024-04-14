@@ -9,7 +9,7 @@
                 <div class="card-body">
                     @foreach ($rankings as $ranking)
                     <div style="white-space: nowrap;">
-                        <p>{{ $ranking->rank}}位: <a href="{{ route('brand.show', $ranking->brand->id) }}">{{ $ranking->brand->name }}</a> (スコア: {{ round($ranking->score, 2) }})</p>
+                        <p>{{ $ranking->rank }}位: <a href="{{ route('brand.show', $ranking->brand->id) }}">{{ $ranking->brand->name }}</a> (スコア: {{ round($ranking->score, 2) }})</p>
                     </div>
                     @endforeach
                 </div>

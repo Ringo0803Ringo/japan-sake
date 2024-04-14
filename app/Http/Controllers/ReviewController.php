@@ -10,10 +10,7 @@ use App\Models\User;
 
 class ReviewController extends Controller
 {
-    public function review_store(Request $request)
-    {
-        $user = User::find(Auth::id());
-
+    public function review_store(Request $request) {
         $request->validate([
             'content' => 'required'
         ],
@@ -30,5 +27,15 @@ class ReviewController extends Controller
         $review->save();
 
         return redirect()->back()->with('success', 'レビューを投稿しました。');
+    }
+
+    public function review_show(Review $review) {
+        return view('review_show', compact('review'));
+    }
+
+    public function review_destroy(Review $review) {
+        $review->delete();
+        $user = Auth::user();
+        return redirect()->route('user', $user->id)->with('success', 'レビューを削除しました。');
     }
 }

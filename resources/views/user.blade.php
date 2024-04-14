@@ -10,9 +10,17 @@
                 <div class="card-body">
                     <p>ユーザー名：{{ $user->name }}</p>
                     <p>メールアドレス：{{ $user->email }}</p>
+                    <a href="{{ route('user_edit', $user->id) }}" class="btn btn-primary float-end">ユーザー情報編集</a>
                 </div>
             </div>
-            <a href="{{ route('user_edit', $user->id) }}" class="btn btn-primary mt-3 h4 float-end">ユーザー情報編集</a>
+            <div class="card mt-3">
+                <div class="card-header h4">レビューした銘柄</div>
+                <div class="card-body">
+                    @foreach ($user->reviews as $review)
+                    <li><a href="{{ route('review_show', $review->id) }}">{{ $review->brand->name }}</a></li>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>

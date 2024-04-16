@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-
+                    <i class="fa-solid fa-wine-bottle fa-lg"></i>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

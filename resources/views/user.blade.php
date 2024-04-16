@@ -14,6 +14,14 @@
                 </div>
             </div>
             <div class="card mt-3">
+                <div class="card-header h4">お気に入り登録した銘柄</div>
+                <div class="card-body">
+                    @foreach ($user->favorites as $favorite)
+                    <li><a href="{{ route('brand.show', $favorite->brand->id) }}">{{ $favorite->brand->name }}</a></li>
+                    @endforeach
+                </div>
+            </div>
+            <div class="card mt-3">
                 <div class="card-header h4">レビューした銘柄</div>
                 <div class="card-body">
                     @foreach ($user->reviews as $review)

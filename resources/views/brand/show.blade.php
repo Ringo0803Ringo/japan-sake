@@ -18,6 +18,11 @@
                     @endforeach
                 </div>
             </div>
+            <form action="{{ route('favorite', $brand->id) }}" method="POST">
+                @csrf
+                <input type="hidden" name="brand_id" value="{{ $brand->id }}">
+                <button type="submit" class="btn mt-4" style="background-color: rgb(255, 0, 162); color: white;">お気に入り登録<i class="fa-solid fa-heart ms-1"></i></button>
+            </form>
         </div>
     </div>
     <div class="row mt-5">
@@ -57,7 +62,7 @@
                             <strong class="text-danger">レビュー内容を入力してください</strong>
                         @enderror
                         <textarea name="content" class="form-control"></textarea>
-                        <input type="hidden" name="brand_id" value="{{$brand->id}}">
+                        <input type="hidden" name="brand_id" value="{{ $brand->id }}">
                         <button type="submit" class="btn btn-primary btn-block mt-3 float-end">レビュー投稿</button>
                     </div>
                 </div>

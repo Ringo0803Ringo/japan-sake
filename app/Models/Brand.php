@@ -27,12 +27,15 @@ class Brand extends Model
         return $this->hasOne(Ranking::class);
     }
 
-    public function tags()
-    {
+    public function tags() {
         return $this->belongsToMany(Tag::class, 'flavor_tags', 'brand_id', 'tag_id');
     }
 
     public function reviews() {
         return $this->hasMany(Review::class);
+    }
+
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
     }
 }

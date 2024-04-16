@@ -7,6 +7,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\RankingController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -43,4 +44,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/review/{brand}', [ReviewController::class, 'review_store'])->name('review_store');
     Route::delete('/review/{review}/destroy', [ReviewController::class, 'review_destroy'])->name('review_destroy');
     Route::get('/review/{review}/show', [ReviewController::class, 'review_show'])->name('review_show');
+    
+    Route::post('/favorite/{brand}', [FavoriteController::class, 'favorite'])->name('favorite');
 });

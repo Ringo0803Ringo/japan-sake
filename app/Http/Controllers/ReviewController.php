@@ -36,6 +36,7 @@ class ReviewController extends Controller
     public function review_destroy(Review $review) {
         $review->delete();
         $user = Auth::user();
+        
         return redirect()->route('user', $user->id)->with('success', 'レビューを削除しました。');
     }
 }

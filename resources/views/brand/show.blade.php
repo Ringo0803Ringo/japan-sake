@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <p>酒造：<a href="{{ route('brewery_search', ['breweryId' => $brand->brewery->id]) }}">{{ $brand->brewery->name }}</a></p>
                     <p>産地：<a href="{{ route('area_search', ['areaId' => $brand->brewery->area->id]) }}">{{ $brand->brewery->area->name }}</a></p>
-                    @foreach ($brand->flavor_tags as $flavorTag)
+                    @foreach($brand->flavor_tags as $flavorTag)
                         @if($flavorTag->tag)
                         <p>風味：<a href="{{ route('flavor_search', ['flavorId' => $flavorTag->tag->id]) }}">{{ $flavorTag->tag->tag }}</a></p>
                         @else
@@ -18,11 +18,24 @@
                     @endforeach
                 </div>
             </div>
+            {{-- @php
+                dd()
+            @endphp --}}
+            @if(empty(Auth::user()->favorites()->where('brand_id', $brand->id)->first()))
+
             <form action="{{ route('favorite', $brand->id) }}" method="POST">
                 @csrf
                 <input type="hidden" name="brand_id" value="{{ $brand->id }}">
                 <button type="submit" class="btn mt-4" style="background-color: rgb(255, 0, 162); color: white;">お気に入り登録<i class="fa-solid fa-heart ms-1"></i></button>
-            </form>
+            </form>                
+            @else
+            <form action="{{ route('favorite_destroy', $brand->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="hidden" name="brand_id" value="{{ $brand->id }}">
+                <button type="submit" class="btn mt-4" style="background-color: rgb(0, 200, 255); color: white;">お気に入り解除<i class="fa-solid fa-heart ms-1"></i></button>
+            </form>  
+            @endif
         </div>
     </div>
     <div class="row mt-5">

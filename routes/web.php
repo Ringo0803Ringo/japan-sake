@@ -46,4 +46,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/review/{review}/show', [ReviewController::class, 'review_show'])->name('review_show');
     
     Route::post('/favorite/{brand}', [FavoriteController::class, 'favorite'])->name('favorite');
+    Route::delete('/favorite/{favorite}/destroy', [FavoriteController::class, 'favorite_destroy'])->name('favorite_destroy');
+
 });

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mt-3">
-                <div class="card-header h4">{{ $review->brand->name }}</div>
+                <div class="card-header h4"><a href="{{ route('brand.show', $review->brand->id) }}">{{ $review->brand->name }}</a></div>
                 <div class="card-body">
                     <label>{{$review->user->name}} {{$review->created_at->toDateString()}}</label>
                     <br>

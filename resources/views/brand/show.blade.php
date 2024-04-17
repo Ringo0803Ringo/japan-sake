@@ -18,17 +18,14 @@
                     @endforeach
                 </div>
             </div>
-            {{-- @php
-                dd()
-            @endphp --}}
-            @if(empty(Auth::user()->favorites()->where('brand_id', $brand->id)->first()))
+            @if(Auth::check() && empty(Auth::user()->favorites()->where('brand_id', $brand->id)->first()))
 
             <form action="{{ route('favorite', $brand->id) }}" method="POST">
                 @csrf
                 <input type="hidden" name="brand_id" value="{{ $brand->id }}">
                 <button type="submit" class="btn mt-4" style="background-color: rgb(255, 0, 162); color: white;">お気に入り登録<i class="fa-solid fa-heart ms-1"></i></button>
             </form>                
-            @else
+            @elseif(Auth::check())
             <form action="{{ route('favorite_destroy', $brand->id) }}" method="POST">
                 @csrf
                 @method('DELETE')

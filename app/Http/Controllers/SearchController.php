@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Area;
 use App\Models\Brewery;
 use App\Models\Tag;
+use App\Models\Ranking;
 
 class SearchController extends Controller
 {
@@ -15,10 +16,12 @@ class SearchController extends Controller
         $keyword = $request->input('keyword');
         $brands = Brand::where('name', 'like', '%'.$keyword.'%')->paginate(20);
         $areas = Area::all();
+        $rankings = Ranking::all();
         return view('top', [
             'brands' => $brands,
             'keyword' => $keyword ?? '',
-            'areas' => $areas
+            'areas' => $areas,
+            'rankings' => $rankings
         ]);
     }
 

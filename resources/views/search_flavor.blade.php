@@ -7,8 +7,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mt-3">
-                
+            <div class="card mt-3 bottom-space">
                 <div class="card-header">{{ $tag->tag }}の銘柄一覧</div>
                 <div class="card-body">
                     <ul>

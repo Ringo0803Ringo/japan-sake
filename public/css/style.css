@@ -1,16 +1,51 @@
 html, body {
-    height: 100%; /* 高さを100%に設定して、全画面をカバー */
+    height: 110%; /* 高さを100%に設定して、全画面をカバー */
 }
 
 body {
-    background-image: url('/images/background.jpg'); 
-    background-size: contain; 
+    background-image: url('/images/sake.jpg'); 
+    background-size: 90px 90px; 
     background-position: top; 
-    background-repeat: repeat-y;
+    background-repeat: repeat-xy;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 .card {
     color: rgb(0, 0, 0);
     background-color: rgb(203, 245, 201);
+}
+
+.custom-navbar {
+    background-color: aquamarine;
+}
+
+.navbar-brand {
+    font-size: 28px;
+}
+
+.nav-item {
+    font-size: 18px;
+}
+
+.bottom-space {
+    margin-bottom: 70px;
+}
+
+.font-color {
+    padding-top: 100px;
+    margin-bottom: 100px;
+}
+
+.highlight {
+    background-color: yellow;
+    padding: 0 10px 0 10px
+}
+
+@keyframes verticalMove {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+.text-center.font-color {
+    animation: verticalMove 2s infinite;
 }

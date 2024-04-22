@@ -9,6 +9,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h2 class="text-center font-color"><span class=" highlight">日々の晩酌に彩りを与えよう！</span></h2>
             <div class="card mt-3">
                 <div class="card-header h4">銘柄検索</div>
                 <div class="card-body">
@@ -35,13 +36,17 @@
 
             <a href="{{ route('ranking') }}" class="btn btn-primary mt-3 h4">Top100銘柄</a>
 
-            <div class="card mt-3">
-                <div class="card-header h4">銘柄一覧</div>
-                <div class="card-body">
-                    @foreach ($brands as $brand)
-                    <li><a href="{{ route('brand.show', $brand->id) }}">{{ $brand->name }}</a></li>
-                    @endforeach
-                    <ul class="pagination pagination-sm mt-3">{{ $brands->links() }}</ul>
+            <div class="card mt-3 bottom-space">
+                <!-- トリガーとなるヘッダー部分 -->
+                <div class="card-header h4" data-bs-toggle="collapse" data-bs-target="#brandList" aria-expanded="false" aria-controls="brandList" style="cursor: pointer;">銘柄一覧</div>
+                <!-- 折りたたみ対象のコンテンツ -->
+                <div class="collapse" id="brandList">
+                    <div class="card-body">
+                        @foreach ($brands as $brand)
+                        <li><a href="{{ route('brand.show', $brand->id) }}">{{ $brand->name }}</a></li>
+                        @endforeach
+                        <ul class="pagination pagination-sm mt-3">{{ $brands->links() }}</ul>
+                    </div>
                 </div>
             </div>
         </div>

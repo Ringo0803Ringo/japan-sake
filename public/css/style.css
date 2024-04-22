@@ -49,3 +49,7 @@ body {
 .text-center.font-color {
     animation: verticalMove 2s infinite;
 }
+
+.sidebar {
+    padding-top: 0px;
+}

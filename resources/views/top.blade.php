@@ -7,9 +7,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
+        <h2 class="text-center font-color"><span class=" highlight">日々の晩酌に彩りを与えよう！</span></h2>
         <div class="col-md-8">
-            <h2 class="text-center font-color"><span class=" highlight">日々の晩酌に彩りを与えよう！</span></h2>
             <div class="card mt-3">
                 <div class="card-header h4">銘柄検索</div>
                 <div class="card-body">
@@ -34,8 +34,6 @@
                 </div>
             </div>
 
-            <a href="{{ route('ranking') }}" class="btn btn-primary mt-3 h4">Top100銘柄</a>
-
             <div class="card mt-3 bottom-space">
                 <!-- トリガーとなるヘッダー部分 -->
                 <div class="card-header h4" data-bs-toggle="collapse" data-bs-target="#brandList" aria-expanded="false" aria-controls="brandList" style="cursor: pointer;">銘柄一覧</div>
@@ -47,6 +45,20 @@
                         @endforeach
                         <ul class="pagination pagination-sm mt-3">{{ $brands->links() }}</ul>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 sidebar">
+            <div class="card mt-3 bottom-space ">
+                <div class="card-header h5">銘柄ランキング</div>
+                <div class="card-body">
+                    @foreach ($rankings as $ranking)
+                    @if ($ranking->id >= 1 && $ranking->id <= 10)
+                        <p>{{ $ranking->rank }}位: <a href="{{ route('brand.show', $ranking->brand->id) }}">{{ $ranking->brand->name }}</a> (スコア: {{ round($ranking->score, 2) }})</p>
+                    @endif
+                    @endforeach
+                    <a href="{{ route('ranking') }}" class="btn btn-primary mt-3 h4">11位以下も表示</a>
                 </div>
             </div>
         </div>

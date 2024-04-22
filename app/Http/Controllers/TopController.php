@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use App\Models\Brand;
 use App\Models\Area;
+use App\Models\Ranking;
 
 class TopController extends Controller
 {
     public function get_top() {
 
-        $brands = Brand::paginate(100);
+        $brands = Brand::paginate(20);
         $areas = Area::all();
+        $rankings = Ranking::all();
 
-        return view('top', compact('brands', 'areas'));
+        return view('top', compact('brands', 'areas', 'rankings'));
     }
 
 }

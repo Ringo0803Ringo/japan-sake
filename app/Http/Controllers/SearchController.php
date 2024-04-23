@@ -14,12 +14,29 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
-        $brands = Brand::where('name', 'like', '%'.$keyword.'%')->paginate(20);
+        $sort = $request->input('sort', 'name_asc');
+        
+        $query = Brand::where('name', 'like', '%'.$keyword.'%')->paginate(20);
+
+        switch ($sort) {
+            case 'name_desc':
+                $query = Brand::orderBy('name', 'desc');
+                break;
+            
+            case 'name_asc':
+            default:
+                $query = Brand::orderBy('name', 'asc');
+                break;
+        }
+    
+        $brands = $query->paginate(20);
+        $brands->appends(['keyword' => $keyword, 'sort' => $sort]);
         $areas = Area::all();
         $rankings = Ranking::all();
         return view('top', [
             'brands' => $brands,
             'keyword' => $keyword ?? '',
+            'sort' => $sort,
             'areas' => $areas,
             'rankings' => $rankings
         ]);

@@ -29,6 +29,8 @@ Route::get('/search/area/{areaId}', [SearchController::class, 'area_search'])->n
 Route::get('/search/brewery/{breweryId}', [SearchController::class, 'brewery_search'])->name('brewery_search');
 Route::get('/search/flavor/{flavorId?}', [SearchController::class, 'flavor_search'])->name('flavor_search');
 
+Route::get('/order', [SearchController::class, 'order'])->name('order');
+
 Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
 
 Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');

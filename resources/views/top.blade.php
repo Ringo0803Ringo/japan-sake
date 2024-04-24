@@ -17,8 +17,9 @@
                         <input type="text" name="keyword" placeholder="銘柄を入力してください" class="form-control">
                         <button class="btn btn-success float-end mt-1" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
                     </form>
-                    <form action="{{ route('search') }}" method="GET">
-                        <select name="sort" onchange="this.form.submit()">
+                    <form action="{{ route('order') }}" method="GET">
+                        <select class="form-control-sm" name="sort" onchange="this.form.submit()">
+                            <option value="">銘柄並べ替え</option>
                             <option value="name_asc">名前順（昇順）</option>
                             <option value="name_desc">名前順（降順）</option>
                             <!-- 他の並べ替え基準を追加 -->

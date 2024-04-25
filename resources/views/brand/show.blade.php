@@ -16,23 +16,24 @@
                         <p>風味：情報なし</p>
                         @endif  
                     @endforeach
+
+                    @if(Auth::check() && empty(Auth::user()->favorites()->where('brand_id', $brand->id)->first()))
+
+                    <form action="{{ route('favorite', $brand->id) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="brand_id" value="{{ $brand->id }}">
+                        <button type="submit" class="btn mt-4 float-end" style="background-color: rgb(255, 0, 162); color: white;">お気に入り登録<i class="fa-solid fa-heart ms-1"></i></button>
+                    </form>                
+                    @elseif(Auth::check())
+                    <form action="{{ route('favorite_destroy', $brand->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="hidden" name="brand_id" value="{{ $brand->id }}">
+                        <button type="submit" class="btn mt-4 float-end" style="background-color: rgb(0, 200, 255); color: white;">お気に入り解除<i class="fa-solid fa-heart ms-1"></i></button>
+                    </form>  
+                    @endif
                 </div>
             </div>
-            @if(Auth::check() && empty(Auth::user()->favorites()->where('brand_id', $brand->id)->first()))
-
-            <form action="{{ route('favorite', $brand->id) }}" method="POST">
-                @csrf
-                <input type="hidden" name="brand_id" value="{{ $brand->id }}">
-                <button type="submit" class="btn mt-4" style="background-color: rgb(255, 0, 162); color: white;">お気に入り登録<i class="fa-solid fa-heart ms-1"></i></button>
-            </form>                
-            @elseif(Auth::check())
-            <form action="{{ route('favorite_destroy', $brand->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <input type="hidden" name="brand_id" value="{{ $brand->id }}">
-                <button type="submit" class="btn mt-4" style="background-color: rgb(0, 200, 255); color: white;">お気に入り解除<i class="fa-solid fa-heart ms-1"></i></button>
-            </form>  
-            @endif
         </div>
     </div>
     <div class="row mt-5">

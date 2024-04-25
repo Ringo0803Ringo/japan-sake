@@ -32,6 +32,7 @@ body {
 }
 
 .font-color {
+    font-style: italic;
     padding-top: 100px;
     margin-bottom: 100px;
 }
@@ -47,9 +48,14 @@ body {
 }
 
 .text-center.font-color {
-    animation: verticalMove 2s infinite;
+    animation: verticalMove 2.5s infinite;
 }
 
 .sidebar {
     padding-top: 0px;
+}
+
+.pagination-sm li a, .pagination-sm li span {
+    padding: 5px 10px; /* パディングを調整 */
+    font-size: 12px; /* フォントサイズを小さく */
 }

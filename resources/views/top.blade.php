@@ -18,26 +18,12 @@
                         <button class="btn btn-success float-end mt-1" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
                     </form>
                     <form action="{{ route('order') }}" method="GET">
-                        <select class="form-control-sm" name="sort" onchange="this.form.submit()">
+                        <select class="form-control-sm mt-1" name="sort" onchange="this.form.submit()">
                             <option value="">銘柄並べ替え</option>
                             <option value="name_asc">名前順（昇順）</option>
                             <option value="name_desc">名前順（降順）</option>
                             <!-- 他の並べ替え基準を追加 -->
                         </select>
-                    </form>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header h4">エリア別検索</div>
-                <div class="card-body">
-                    <form action="{{ route('search_area') }}" method="GET">
-                        <select class="form-control" name="area_id">
-                            @foreach ($areas as $area)
-                                <option value="{{ $area->id }}">{{ $area->name }}</option>
-                            @endforeach
-                        </select>
-                        <button class="btn btn-success float-end mt-1" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
                     </form>
                 </div>
             </div>
@@ -54,7 +40,7 @@
         </div>
 
         <div class="col-md-4 sidebar">
-            <div class="card mt-3 bottom-space ">
+            <div class="card mt-3">
                 <div class="card-header h5">銘柄ランキング</div>
                 <div class="card-body">
                     @foreach ($rankings as $ranking)
@@ -63,6 +49,19 @@
                     @endif
                     @endforeach
                     <a href="{{ route('ranking') }}" class="btn btn-primary mt-3 h4">11位以下も表示</a>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-header h4">エリア別検索</div>
+                <div class="card-body">
+                    <form action="{{ route('search_area') }}" method="GET">
+                        <select class="form-control" name="area_id">
+                            @foreach ($areas as $area)
+                                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                            @endforeach
+                        </select>
+                        <button class="btn btn-success float-end mt-1" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

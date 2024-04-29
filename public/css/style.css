@@ -51,10 +51,6 @@ body {
     animation: verticalMove 2.5s infinite;
 }
 
-.sidebar {
-    padding-top: 0px;
-}
-
 .pagination-sm li a, .pagination-sm li span {
     padding: 5px 10px; /* パディングを調整 */
     font-size: 12px; /* フォントサイズを小さく */

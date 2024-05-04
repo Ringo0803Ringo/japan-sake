@@ -29,13 +29,28 @@
             </div>
 
             <div class="card mt-3 bottom-space">
-                <div class="card-header h4">銘柄一覧</div>
-                <div class="card-body">
-                    @foreach ($brands as $brand)
-                    <li><a href="{{ route('brand.show', $brand->id) }}">{{ $brand->name }}</a></li>
-                    @endforeach
-                    <ul class="pagination pagination-sm mt-3">{{ $brands->links() }}</ul>
+                <button class="btn btn-brand" id="toggleButton">銘柄一覧を表示</button>
+                <div id="collapsibleContent" style="display: none;">
+                    <div class="card-header h4">銘柄一覧</div>
+                    <div class="card-body">
+                        @foreach ($brands as $brand)
+                        <li><a href="{{ route('brand.show', $brand->id) }}">{{ $brand->name }}</a></li>
+                        @endforeach
+                        <ul class="pagination pagination-sm mt-3">{{ $brands->links() }}</ul>
+                    </div>
                 </div>
+                <script>
+                    document.getElementById('toggleButton').addEventListener('click', function() {
+                        var content = document.getElementById('collapsibleContent');
+                        if (content.style.display === 'none') {
+                            content.style.display = 'block';
+                            this.textContent = '銘柄一覧を隠す';
+                        } else {
+                            content.style.display = 'none';
+                            this.textContent = '銘柄一覧を表示';
+                        }
+                    });
+                    </script>
             </div>
         </div>
 
@@ -51,7 +66,7 @@
                     <a href="{{ route('ranking') }}" class="btn btn-primary mt-3 h4">11位以下も表示</a>
                 </div>
             </div>
-            <div class="card mt-3">
+            <div class="card mt-3 mb-5">
                 <div class="card-header h4">エリア別検索</div>
                 <div class="card-body">
                     <form action="{{ route('search_area') }}" method="GET">

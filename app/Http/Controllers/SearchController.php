@@ -15,13 +15,10 @@ class SearchController extends Controller
     {
         $keyword = $request->input('keyword');
         $brands = Brand::where('name', 'like', '%'.$keyword.'%')->paginate(20);
-        $areas = Area::all();
-        $rankings = Ranking::all();
-        return view('top', [
+
+        return view('search', [
             'brands' => $brands,
             'keyword' => $keyword ?? '',
-            'areas' => $areas,
-            'rankings' => $rankings
         ]);
     }
 
@@ -52,7 +49,8 @@ class SearchController extends Controller
     {
         $area_id = $request->input('area_id');
         $area = Area::with('brands')->find($area_id);
-        return view('search_area', compact('area'));
+        $areas = Area::all();
+        return view('search_area', compact('area', 'areas'));
     }
 
     public function area_search($areaId)

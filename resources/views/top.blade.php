@@ -50,7 +50,7 @@
                             this.textContent = '銘柄一覧を表示';
                         }
                     });
-                    </script>
+                </script>
             </div>
         </div>
 
@@ -71,11 +71,16 @@
                 <div class="card-body">
                     <form action="{{ route('search_area') }}" method="GET">
                         <select class="form-control" name="area_id">
+                            <option value="48">エリアを選択してください</option>
                             @foreach ($areas as $area)
                                 <option value="{{ $area->id }}">{{ $area->name }}</option>
                             @endforeach
                         </select>
+                        @if (!empty( $area->id ))
                         <button class="btn btn-success float-end mt-1" type="submit">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></button>
+                        @else
+                        <a href="{{ route('area_search') }}" class="btn btn-success float-end mt-1">検索<i class="fa-solid fa-magnifying-glass ms-1"></i></a>
+                        @endif
                     </form>
                 </div>
             </div>

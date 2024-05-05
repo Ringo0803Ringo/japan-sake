@@ -24,7 +24,7 @@ class SearchController extends Controller
 
     public function order(Request $request)
     {
-        $sort = $request->input('sort', 'name_asc'); // デフォルトは名前昇順
+        $sort = $request->input('sort', 'id'); 
     
         switch ($sort) {
             case 'name_asc':
@@ -33,16 +33,19 @@ class SearchController extends Controller
             case 'name_desc':
                 $brands = Brand::orderBy('name', 'desc')->paginate(20);
                 break;
-            // 他の並べ替え基準に応じた処理
             default:
-                $brands = Brand::orderBy('name', 'asc')->paginate(20);
+                $brands = Brand::orderBy('id')->paginate(20);
                 break;
         }
 
         $areas = Area::all();
         $rankings = Ranking::all();
     
-        return view('top', compact('brands', 'areas', 'rankings'));
+        return view('top', [
+            'brands' => $brands,
+            'areas' => $areas,
+            'rankings' => $rankings
+        ]);
     }
 
     public function search_area(Request $request)

@@ -42,6 +42,14 @@ body {
     padding: 0 10px 0 10px
 }
 
+.test-account {
+    margin-left: 38px;
+}
+
+.test-pass {
+    margin-left: 80px;
+}
+
 @keyframes verticalMove {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(10px); }

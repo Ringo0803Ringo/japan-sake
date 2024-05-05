@@ -63,6 +63,10 @@
                                     </a>
                                 @endif
                             </div>
+                            <div class="col-md-8 mt-3 ms-5">
+                                <p class="test-account">テストアカウント：mikan@gmail.com</p>
+                                <p class="test-pass">パスワード：mikan</p>
+                            </div>
                         </div>
                     </form>
                 </div>

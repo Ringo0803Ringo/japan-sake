@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-md-8 mt-3 ms-5">
                                 <p class="test-account">テストアカウント：mikan@gmail.com</p>
-                                <p class="test-pass">パスワード：mikan</p>
+                                <p class="test-pass">パスワード：mikan7777</p>
                             </div>
                         </div>
                     </form>

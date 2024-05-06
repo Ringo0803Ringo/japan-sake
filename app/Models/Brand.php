@@ -35,6 +35,10 @@ class Brand extends Model
         return $this->hasMany(Review::class);
     }
 
+    public function photos() {
+        return $this->hasMany(Brand::class);
+    }
+
     public function favorites() {
         return $this->hasMany(Favorite::class);
     }

@@ -86,7 +86,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="image">画像ファイル:</label>
-                            <input type="file" name="image" id="image" required>
+                            <input type="file" name="image" id="image" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block mt-3 float-end">アップロード</button>
                     </div>

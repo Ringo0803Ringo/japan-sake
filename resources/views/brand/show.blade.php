@@ -7,6 +7,7 @@
             <div class="card mt-4">
                 <div class="card-header h4">{{ $brand->name }}</div>
                 <div class="card-body">
+                    <img src="{{ $brand->photo->filename }}" alt="Image">
                     <p>酒造：<a href="{{ route('brewery_search', ['breweryId' => $brand->brewery->id]) }}">{{ $brand->brewery->name }}</a></p>
                     <p>産地：<a href="{{ route('area_search', ['areaId' => $brand->brewery->area->id]) }}">{{ $brand->brewery->area->name }}</a></p>
                     @foreach($brand->flavor_tags as $flavorTag)

@@ -61,7 +61,7 @@ body {
 
 .pagination-sm li a, .pagination-sm li span {
     padding: 5px 10px; /* パディングを調整 */
-    font-size: 12px; /* フォントサイズを小さく */
+    font-size: 9px; /* フォントサイズを小さく */
 }
 
 /* スマートフォン向けのスタイル */

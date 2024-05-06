@@ -82,7 +82,7 @@
             <form action="{{ route('photo_store', $brand->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card mt-4 mb-5">
-                    <div class="card-header text-center h4">レビュー投稿</div>
+                    <div class="card-header text-center h4">画像投稿</div>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="image">画像ファイル:</label>

@@ -48,6 +48,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/review/{review}/destroy', [ReviewController::class, 'review_destroy'])->name('review_destroy');
     Route::get('/review/{review}/show', [ReviewController::class, 'review_show'])->name('review_show');
 
+    Route::post('/photo/create', [PhotoController::class, 'photo_create'])->name('photo_create');
     Route::post('/photo/{brand}', [PhotoController::class, 'photo_store'])->name('photo_store');
     
     Route::post('/favorite/{brand}', [FavoriteController::class, 'favorite'])->name('favorite');

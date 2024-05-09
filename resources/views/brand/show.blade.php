@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="row mt-5">
-        <div class="col-7">
+        <div class="col-md-7">
             <div class="card mt-4"">
                 <div class="card-header text-center h4">レビュー最新一覧</div>
                 <div class="card-body">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-5">
+        <div class="col-md-5">
             <form action="{{ route('review_store', $brand->id) }}" method="POST">
                 @csrf
                 <div class="card mt-4">

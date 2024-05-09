@@ -7,6 +7,11 @@ use App\Models\Photo;
 
 class PhotoController extends Controller
 {
+    public function create() {
+        
+        return view('brand.show');
+    }
+
     public function photo_store(Request $request) {
         $request->validate([
             'photo' => 'required'

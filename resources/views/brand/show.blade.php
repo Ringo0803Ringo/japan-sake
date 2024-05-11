@@ -85,9 +85,11 @@
                     <div class="card-header text-center h4">画像投稿</div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="image">画像ファイル:</label>
+                            <label for="image">画像ファイル:<span class="ms-4">ドラッグ&ドロップできます</span></label>
                             <input type="file" name="image" id="image" class="form-control" required>
                         </div>
+                        <p>・jpeg、png、jpg、gif、svgのファイルにしてください</p>
+                        <input type="hidden" name="brand_id" value="{{ $brand->id }}">
                         <button type="submit" class="btn btn-primary btn-block mt-3 float-end">アップロード</button>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Photo;
 
 class PhotoController extends Controller
@@ -14,19 +15,18 @@ class PhotoController extends Controller
 
     public function photo_store(Request $request) {
         $request->validate([
-            'photo' => 'required'
-        ],
-        [
-            'photo.require' => '写真を追加してください'
-        ],
-        [
-            'image' => 'required|image|max:2048', // 2MBまで
-        ]); 
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // ファイルタイプを指定 // 2MBまで
+        ], [
+            'image.required' => '写真を追加してください'
+        ]);
 
         $path = $request->file('image')->store('images', 'public');
 
-        $photo = new Photo;
-        $photo->filmname = $path;
+        $photo = new Photo([
+            'user_id' => Auth::id(),
+            'brand_id' => $request->brand_id,
+            'filename' => $path
+        ]);
         $photo->save();
 
         return redirect()->back()->with('success', '画像がアップロードされました。');

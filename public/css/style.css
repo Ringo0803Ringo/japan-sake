@@ -43,11 +43,11 @@ body {
 }
 
 .test-account {
-    margin-left: 38px;
+    text-align: center;
 }
 
 .test-pass {
-    margin-left: 80px;
+    text-align: center;
 }
 
 @keyframes verticalMove {

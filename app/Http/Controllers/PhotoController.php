@@ -20,7 +20,7 @@ class PhotoController extends Controller
             'image.required' => '写真を追加してください'
         ]);
 
-        $path = $request->file('image')->store('images', 'public');
+        $path = $request->file('image')->store('public/image');
 
         $photo = new Photo([
             'user_id' => Auth::id(),
@@ -30,5 +30,10 @@ class PhotoController extends Controller
         $photo->save();
 
         return redirect()->back()->with('success', '画像がアップロードされました。');
+    }
+
+    public function photo_show() {
+        $photos = Photo::all();
+        return view('brand.show', compact('photos'));
     }
 }

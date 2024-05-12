@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\Models\Photo;
 
 class BrandController extends Controller
 {
@@ -14,7 +15,9 @@ class BrandController extends Controller
 
         $reviews = $brand->reviews()->get();
 
-        return view('brand.show', compact('brand', 'reviews'));
+        $photos = Photo::all();
+
+        return view('brand.show', compact('brand', 'reviews', 'photos'));
     }
 
 

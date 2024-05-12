@@ -36,7 +36,7 @@ class Brand extends Model
     }
 
     public function photos() {
-        return $this->hasMany(Brand::class);
+        return $this->hasMany(Photo::class);
     }
 
     public function favorites() {

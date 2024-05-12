@@ -7,7 +7,16 @@
             <div class="card mt-4">
                 <div class="card-header h4">{{ $brand->name }}</div>
                 <div class="card-body">
-                    <p>酒造：<a href="{{ route('brewery_search', ['breweryId' => $brand->brewery->id]) }}">{{ $brand->brewery->name }}</a></p>
+                    @if($photos)
+                        @foreach ($photos as $photo)
+                        <div>
+                            <img src="{{ Storage::url($photo->filename) }}" alt="Uploaded Image" width="300" height="300"> 
+                        </div>
+                        @endforeach
+                    @else
+                        <p></p>
+                    @endif
+                    <p class="mt-3">酒造：<a href="{{ route('brewery_search', ['breweryId' => $brand->brewery->id]) }}">{{ $brand->brewery->name }}</a></p>
                     <p>産地：<a href="{{ route('area_search', ['areaId' => $brand->brewery->area->id]) }}">{{ $brand->brewery->area->name }}</a></p>
                     @foreach($brand->flavor_tags as $flavorTag)
                         @if($flavorTag->tag)
@@ -88,7 +97,7 @@
                             <label for="image">画像ファイル:<span class="ms-4">ドラッグ&ドロップできます</span></label>
                             <input type="file" name="image" id="image" class="form-control" required>
                         </div>
-                        <p>・jpeg、png、jpg、gif、svgのファイルにしてください</p>
+                        <p class="mt-2">・jpeg、png、jpg、gif、svgのファイルにしてください</p>
                         <input type="hidden" name="brand_id" value="{{ $brand->id }}">
                         <button type="submit" class="btn btn-primary btn-block mt-3 float-end">アップロード</button>
                     </div>

@@ -32,8 +32,19 @@ class PhotoController extends Controller
         return redirect()->back()->with('success', '画像がアップロードされました。');
     }
 
-    public function photo_show() {
+    public function photo_up() {
         $photos = Photo::all();
         return view('brand.show', compact('photos'));
+    }
+
+    public function photo_show(Photo $photo) {
+        return view('photo_show', compact('photo'));
+    }
+
+    public function photo_destroy(Photo $photo) {
+        $photo->delete();
+        $user = Auth::user();
+        
+        return redirect()->route('user', $user->id)->with('success', '画像を削除しました。');
     }
 }

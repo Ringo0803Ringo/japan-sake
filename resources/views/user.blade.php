@@ -29,6 +29,14 @@
                     @endforeach
                 </div>
             </div>
+            <div class="card mt-3">
+                <div class="card-header h4">画像投稿した銘柄</div>
+                <div class="card-body">
+                    @foreach ($user->photos as $photo)
+                    <li><a href="{{ route('photo_show', $photo->id) }}">{{ $photo->brand->name }}</a></li>
+                    @endforeach
+                </div>
+            </div>
         </div>
     </div>
 </div>

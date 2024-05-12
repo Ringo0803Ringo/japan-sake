@@ -36,7 +36,7 @@ Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
 
 Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');
 
-Route::get('/photos', [PhotoController::class, 'photo_show'])->name('photo_show');
+Route::get('/photos', [PhotoController::class, 'photo_up'])->name('photo_up');
 
 Auth::routes();
 
@@ -52,8 +52,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::post('/photo/create', [PhotoController::class, 'photo_create'])->name('photo_create');
     Route::post('/photo/{brand}', [PhotoController::class, 'photo_store'])->name('photo_store');
+    Route::delete('/photo/{photo}/destroy', [PhotoController::class, 'photo_destroy'])->name('photo_destroy');
+    Route::get('/photo/{photo}/show', [PhotoController::class, 'photo_show'])->name('photo_show');
+
 
     Route::post('/favorite/{brand}', [FavoriteController::class, 'favorite'])->name('favorite');
+
     Route::delete('/favorite/{favorite}/destroy', [FavoriteController::class, 'favorite_destroy'])->name('favorite_destroy');
 
 });

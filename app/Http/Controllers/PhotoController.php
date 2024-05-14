@@ -20,12 +20,13 @@ class PhotoController extends Controller
             'image.required' => '写真を追加してください'
         ]);
 
-        $path = $request->file('image')->store('public/image');
+        // 画像をBase64エンコード
+        $image = base64_encode(file_get_contents($request->image->getRealPath()));
 
         $photo = new Photo([
             'user_id' => Auth::id(),
             'brand_id' => $request->brand_id,
-            'filename' => $path
+            'filename' => $image
         ]);
         $photo->save();
 

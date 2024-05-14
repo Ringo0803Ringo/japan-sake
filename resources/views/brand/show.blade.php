@@ -10,7 +10,7 @@
                     @if($photos)
                         @foreach ($photos as $photo)
                         <div>
-                            <img src="{{ Storage::url($photo->filename) }}" alt="Uploaded Image" width="300" height="300"> 
+                            <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" width="300" height="300"> 
                         </div>
                         @endforeach
                     @else
@@ -88,7 +88,7 @@
                 </div>
             </form>
 
-            <form action="{{ route('photo_store', $brand->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('photo_store', $brand->id) }}" method="POST" enctype="multipart/form-data" class="post_form">
                 @csrf
                 <div class="card mt-4 mb-5">
                     <div class="card-header text-center h4">画像投稿</div>

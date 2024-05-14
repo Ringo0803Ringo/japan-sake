@@ -20,7 +20,7 @@ class PhotoController extends Controller
             'image.required' => '写真を追加してください'
         ]);
 
-        $path = $request->file('image')->store('images', 's3');
+        $path = $request->file('image')->store('public/image');
 
         $photo = new Photo([
             'user_id' => Auth::id(),

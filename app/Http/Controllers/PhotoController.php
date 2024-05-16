@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Photo;
+use App\Models\Brand;
 
 class PhotoController extends Controller
 {
@@ -33,8 +34,8 @@ class PhotoController extends Controller
         return redirect()->back()->with('success', '画像がアップロードされました。');
     }
 
-    public function photo_up() {
-        $photos = Photo::all();
+    public function photo_up(Brand $brand) {
+        $photos = Photo::where('brand_id', $brand->id)->get(); // 特定のbrand_idに紐づく写真のみを取得
         return view('brand.show', compact('photos'));
     }
 

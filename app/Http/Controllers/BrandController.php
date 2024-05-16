@@ -15,7 +15,8 @@ class BrandController extends Controller
 
         $reviews = $brand->reviews()->get();
 
-        $photos = Photo::all();
+        $photos = Photo::where('brand_id', $brand->id)->get(); // 特定のbrand_idに紐づく写真のみを取得
+    
 
         return view('brand.show', compact('brand', 'reviews', 'photos'));
     }

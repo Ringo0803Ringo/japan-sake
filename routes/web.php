@@ -36,7 +36,7 @@ Route::get('/ranking', [RankingController::class, 'index'])->name('ranking');
 
 Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show');
 
-Route::get('/photos', [PhotoController::class, 'photo_up'])->name('photo_up');
+Route::get('/photos/{brandId}', [PhotoController::class, 'photo_up'])->name('photo_up');
 
 Auth::routes();
 

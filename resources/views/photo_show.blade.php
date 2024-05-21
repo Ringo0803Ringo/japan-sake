@@ -7,7 +7,7 @@
             <div class="card mt-3">
                 <div class="card-header h4"><a href="{{ route('brand.show', $photo->brand->id) }}">{{ $photo->brand->name }}</a>の画像データ</div>
                 <div class="card-body">
-                    <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" width="300" height="300"> 
+                    <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" class="responsive"> 
                     <form action="{{ route('photo_destroy', $photo->id) }}" method="POST">
                         @csrf
                         @method('DELETE')

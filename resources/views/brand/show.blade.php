@@ -10,7 +10,7 @@
                     @if($photos)
                         @foreach ($photos as $photo)
                         <div>
-                            <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" width="300" height="300"> 
+                            <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" class="responsive"> 
                         </div>
                         @endforeach
                     @else

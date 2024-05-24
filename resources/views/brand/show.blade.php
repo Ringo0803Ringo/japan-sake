@@ -7,15 +7,37 @@
             <div class="card mt-4">
                 <div class="card-header h4">{{ $brand->name }}</div>
                 <div class="card-body">
-                    @if($photos)
-                        @foreach ($photos as $photo)
-                        <div>
-                            <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" class="responsive"> 
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            @foreach ($photos as $photo)
+                            <div class="swiper-slide">
+                                <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" class="responsive">
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    @else
-                        <p></p>
-                    @endif
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var mySwiper = new Swiper('.swiper-container', {
+                                loop: true,
+                                slidesPerView: 1,
+                                spaceBetween: 500,
+                                pagination: {
+                                    el: '.swiper-pagination',
+                                    clickable: true,
+                                },
+                                navigation: {
+                                    nextEl: '.swiper-button-next',
+                                    prevEl: '.swiper-button-prev',
+                                },
+                            });
+                        });
+                    </script>
                     <p class="mt-3">酒造：<a href="{{ route('brewery_search', ['breweryId' => $brand->brewery->id]) }}">{{ $brand->brewery->name }}</a></p>
                     <p>産地：<a href="{{ route('area_search', ['areaId' => $brand->brewery->area->id]) }}">{{ $brand->brewery->area->name }}</a></p>
                     @foreach($brand->flavor_tags as $flavorTag)
@@ -103,7 +125,6 @@
                     </div>
                 </div>
             </form>
-            
         </div>
     </div>
 </div>

@@ -23,6 +23,10 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    {{-- swiper --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
 </head>
 <body style="padding: 60px 0;">
     <div id="app">
@@ -39,6 +43,8 @@
         </main>
 
         @include('layouts.footer')
+        <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js">
+        </script>
     </div>
 </body>
 </html>

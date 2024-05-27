@@ -9,6 +9,37 @@
 <div class="container">
     <div class="row">
         <h2 class="text-center font-color"><span class=" highlight">日々の晩酌に彩りを与えよう！</span></h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                @foreach ($photos as $photo)
+                <div class="swiper-slide">
+                    <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" class="responsive">
+                </div>
+                @endforeach
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var mySwiper = new Swiper('.swiper-container', {
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 500,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            });
+        </script>
         <div class="col-md-8">
             <div class="card mt-3">
                 <div class="card-header h4">銘柄検索</div>

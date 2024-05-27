@@ -38,6 +38,8 @@ Route::get('/brand/{brand}', [BrandController::class, 'show'])->name('brand.show
 
 Route::get('/photos/{brandId}', [PhotoController::class, 'photo_up'])->name('photo_up');
 
+Route::get('/brand/{id}', [BrandController::class, 'recommend'])->name('recommend');
+
 Auth::routes();
 
 Route::middleware(['auth', 'verified'])->group(function () {

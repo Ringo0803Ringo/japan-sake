@@ -21,5 +21,12 @@ class BrandController extends Controller
         return view('brand.show', compact('brand', 'reviews', 'photos'));
     }
 
+    public function recommend($id) {
+        // ブランドIDが312の画像を取得
+        $brand = Brand::findOrFail($id);
+        $photos = Photo::where('brand_id', 312)->get(); // 固定のブランドID 312の画像を取得
+    
+        return view('top', compact('brand', 'photos'));
+    }
 
 }

@@ -27,23 +27,6 @@
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-button-next"></div>
                     </div>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            var mySwiper = new Swiper('.swiper-container', {
-                                loop: true,
-                                slidesPerView: 1,
-                                spaceBetween: 500,
-                                pagination: {
-                                    el: '.swiper-pagination',
-                                    clickable: true,
-                                },
-                                navigation: {
-                                    nextEl: '.swiper-button-next',
-                                    prevEl: '.swiper-button-prev',
-                                },
-                            });
-                        });
-                    </script>
                 </div>
             </div>
         </div>
@@ -113,5 +96,22 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 500,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    });
+</script>
 
 @endsection

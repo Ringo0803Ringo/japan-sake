@@ -40,6 +40,8 @@
 
         <main class="py-4">
                 @yield('content')
+
+                @yield('scripts')
         </main>
 
         @include('layouts.footer')

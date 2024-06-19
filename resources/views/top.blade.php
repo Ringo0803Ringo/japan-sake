@@ -10,24 +10,15 @@
     <div class="row">
         <h2 class="text-center font-color"><span class=" highlight">日々の晩酌に彩りを与えよう！</span></h2>
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header h4">⭐️オススメ銘柄</div>
-                <div class="card-body">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach ($photos as $photo)
-                            <div class="swiper-slide">
-                                <img src="data:image/jpeg;base64,{{ $photo->filename }}" alt="Uploaded Image" class="responsive mb-3">
-                            </div>
-                            @endforeach
-                        </div>
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                        <!-- Add Navigation -->
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
                 </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
         <div class="col-md-8 mt-5">

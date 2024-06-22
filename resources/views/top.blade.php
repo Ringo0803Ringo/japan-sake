@@ -71,7 +71,6 @@
                 <div class="card-body">
                     <form action="{{ route('search_area') }}" method="GET">
                         <select class="form-control" name="area_id">
-                            <option value="48">エリアを選択してください</option>
                             @foreach ($areas as $area)
                                 <option value="{{ $area->id }}">{{ $area->name }}</option>
                             @endforeach

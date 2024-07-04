@@ -42,7 +42,7 @@ body {
     padding: 0 10px 0 10px
 }
 
-img.responsive {
+.responsive {
     width: 100%;
     height: 400px;
     object-fit: contain;

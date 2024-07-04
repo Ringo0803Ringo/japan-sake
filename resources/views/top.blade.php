@@ -12,7 +12,11 @@
         <div class="col-md-12">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-
+                    @foreach (File::glob(public_path('images/*.png')) as $image)
+                    <div class="swiper-slide">
+                        <img src="{{ asset('images/' . basename($image)) }}" alt="Image Description">
+                    </div>
+                    @endforeach
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>

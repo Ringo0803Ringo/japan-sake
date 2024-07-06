@@ -48,12 +48,13 @@ body {
     object-fit: contain;
 }
 
-.test-account {
-    text-align: center;
+.top-image {
+    text-align: center; 
+    object-fit: contain;
 }
 
-.test-pass {
-    text-align: center;
+.swiper-container {
+    overflow: hidden; /* コンテナからはみ出た部分を隠す */
 }
 
 @keyframes verticalMove {

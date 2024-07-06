@@ -8,21 +8,16 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h2 class="text-center font-color"><span class=" highlight">日々の晩酌に彩りを与えよう！</span></h2>
+        <h2 class="text-center font-color"><span class="highlight">日々の晩酌に彩りを与えよう！</span></h2>
         <div class="col-md-12">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    @foreach (File::glob(public_path('images/*.png')) as $image)
-                    <div class="swiper-slide">
-                        <img src="{{ asset('images/' . basename($image)) }}" alt="Image Description">
-                    </div>
-                    @endforeach
+                    <div class="swiper-slide top-image"><img src="images/picture.png" alt="Centered Image"></div>
+                    <div class="swiper-slide top-image"><img src="images/masu.jpg" alt="Centered Image"></div>
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
                 <!-- Add Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev ms-5 mt-5"></div>
+                <div class="swiper-button-next me-5 mt-5"></div>
             </div>
         </div>
         <div class="col-md-8 mt-5">

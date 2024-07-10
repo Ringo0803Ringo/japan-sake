@@ -12,8 +12,8 @@
         <div class="col-md-12">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide top-image"><img src="images/picture.png" alt="Centered Image"></div>
-                    <div class="swiper-slide top-image"><img src="images/masu.jpg" alt="Centered Image"></div>
+                    <div class="swiper-slide top-image1"><img src="images/picture.png" alt="Centered Image"></div>
+                    <div class="swiper-slide top-image2"><img src="images/masu.webp" alt="Centered Image"></div>
                 </div>
                 <!-- Add Navigation -->
                 <div class="swiper-button-prev ms-5 mt-5"></div>

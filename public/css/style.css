@@ -48,13 +48,16 @@ body {
     object-fit: contain;
 }
 
-.top-image {
+.top-image1 {
     text-align: center; 
-    object-fit: contain;
+}
+
+.top-image2 {
+    text-align: center; 
 }
 
 .swiper-container {
-    overflow: hidden; /* コンテナからはみ出た部分を隠す */
+    overflow: hidden;
 }
 
 @keyframes verticalMove {

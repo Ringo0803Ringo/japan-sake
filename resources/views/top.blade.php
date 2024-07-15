@@ -15,7 +15,6 @@
                     <div class="swiper-slide top-image1"><img src="images/picture.png" alt="Centered Image"></div>
                     <div class="swiper-slide top-image2"><img src="images/masu.webp" alt="Centered Image"></div>
                 </div>
-                <!-- Add Navigation -->
                 <div class="swiper-button-prev ms-5 mt-5"></div>
                 <div class="swiper-button-next me-5 mt-5"></div>
             </div>
@@ -41,7 +40,6 @@
                             <option value="name_desc">名前順（降順）</option>
                             <!-- 他の並べ替え基準を追加 -->
                         </select>
-
                     </form>
                 </div>
                 <div class="card-body">

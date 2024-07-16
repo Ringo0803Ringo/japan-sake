@@ -16,7 +16,7 @@ class TopController extends Controller
         $brands = Brand::paginate(20);
         $areas = Area::all();
         $rankings = Ranking::all();
-        $photos = Photo::where('brand_id', 312)->get(); 
+        $photos = Photo::whereNotNull('brand_id')->get(); 
 
         return view('top', compact('brands', 'areas', 'rankings', 'photos'));
     }

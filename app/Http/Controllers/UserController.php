@@ -20,10 +20,6 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-        ],
-        [
-            'name.required' => '名前を入力してください',
-            'email.required' => 'メールアドレスを入力してください',
         ]);
 
         $user->name = $request->name;

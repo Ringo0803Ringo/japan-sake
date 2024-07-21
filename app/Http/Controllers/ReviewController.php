@@ -13,9 +13,6 @@ class ReviewController extends Controller
     public function review_store(Request $request) {
         $request->validate([
             'content' => 'required'
-        ],
-        [
-            'content.required' => 'レビュー内容を入力してください'
         ]);
 
         $review = new Review([

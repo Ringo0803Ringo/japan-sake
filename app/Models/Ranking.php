@@ -12,7 +12,8 @@ class Ranking extends Model
     protected $fillable = [
         'rank',
         'score',
-        'brand_id'
+        'brand_id',
+        'body'
     ];
 
     public function brand() {

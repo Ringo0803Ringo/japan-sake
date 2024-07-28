@@ -7,6 +7,7 @@
             <div class="card mt-4">
                 <div class="card-header h4">{{ $brand->name }}</div>
                 <div class="card-body">
+                    
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             @foreach ($photos as $photo)
@@ -49,6 +50,7 @@
             </div>
         </div>
     </div>
+
     <div class="row mt-5">
         <div class="col-md-7">
             <div class="card mt-4"">

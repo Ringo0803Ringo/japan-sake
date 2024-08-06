@@ -16,7 +16,7 @@ class FavoriteController extends Controller
         ]);
         $favorite->save();
 
-        return back()->with('success', 'お気に入り登録しました');
+        return back()->with('success', 'お気に入り登録しました。');
     }
 
     public function favorite_destroy(Request $request, Brand $brand) {
